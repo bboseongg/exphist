@@ -1,0 +1,67 @@
+{
+  "title": "Dark Energy Survey Year 6 Results: Cosmological Constraints from Galaxy Clustering and Weak Lensing",
+  "shortName": "DES Y6 3×2pt",
+  "authors": "DES Collaboration",
+  "year": 2026,
+  "date": "2026-01-21",
+  "arxiv": "2601.14559",
+  "probes": [
+    "WL",
+    "GC"
+  ],
+  "summary": "Legacy DES 3×2pt analysis over about 5000 deg²: a growth-of-structure measurement of the matter density.",
+  "results": [
+    {
+      "id": "lcdm",
+      "label": "DES Y6 3×2pt ΛCDM",
+      "model": "LCDM",
+      "datasets": [
+        "DES Y6 cosmic shear",
+        "galaxy clustering",
+        "galaxy–galaxy lensing"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.333,
+          "plus": 0.023,
+          "minus": 0.028
+        },
+        "S8": {
+          "value": 0.789,
+          "sigma": 0.012
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "wcdm",
+      "label": "DES Y6 3×2pt wCDM",
+      "model": "wCDM",
+      "datasets": [
+        "DES Y6 cosmic shear",
+        "galaxy clustering",
+        "galaxy–galaxy lensing"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.325,
+          "plus": 0.032,
+          "minus": 0.035
+        },
+        "w": {
+          "value": -1.12,
+          "plus": 0.26,
+          "minus": 0.2
+        },
+        "S8": {
+          "value": 0.782,
+          "plus": 0.021,
+          "minus": 0.02
+        }
+      },
+      "source": "abstract"
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

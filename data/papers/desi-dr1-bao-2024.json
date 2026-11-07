@@ -1,0 +1,159 @@
+{
+  "title": "DESI 2024 VI: Cosmological Constraints from the Measurements of Baryon Acoustic Oscillations",
+  "shortName": "DESI DR1 BAO",
+  "authors": "DESI Collaboration",
+  "year": 2024,
+  "date": "2024-04-03",
+  "arxiv": "2404.03002",
+  "doi": "10.1088/1475-7516/2025/02/021",
+  "journal": "JCAP 02 (2025) 021",
+  "probes": [
+    "BAO",
+    "Lya"
+  ],
+  "summary": "First-year DESI BAO. With the CMB and SNe, w0waCDM is preferred over ΛCDM at 2.5σ (Pantheon+), 3.5σ (Union3) and 3.9σ (DES-SN5YR).",
+  "results": [
+    {
+      "id": "lcdm",
+      "label": "DESI DR1 BAO ΛCDM (+BBN, θ*)",
+      "model": "LCDM",
+      "datasets": [
+        "DESI DR1 BAO",
+        "BBN prior",
+        "CMB θ*"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.295,
+          "sigma": 0.015,
+          "note": "DESI BAO alone"
+        },
+        "H0": {
+          "value": 68.52,
+          "sigma": 0.62,
+          "note": "DESI + BBN + θ*"
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "lcdm-cmb",
+      "label": "DESI DR1 + CMB (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "DESI DR1 BAO",
+        "Planck",
+        "Planck + ACT lensing"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.307,
+          "sigma": 0.005
+        },
+        "H0": {
+          "value": 67.97,
+          "sigma": 0.38
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "w0wa-desi-cmb",
+      "label": "DESI DR1 + CMB",
+      "model": "w0waCDM",
+      "datasets": [
+        "DESI DR1 BAO",
+        "Planck",
+        "Planck + ACT lensing"
+      ],
+      "params": {
+        "w0": {
+          "value": -0.45,
+          "plus": 0.34,
+          "minus": 0.21
+        },
+        "wa": {
+          "value": -1.79,
+          "plus": 0.48,
+          "minus": 1.0
+        }
+      },
+      "preferenceOverLCDM": 2.6,
+      "source": "eq. (5.5) and abstract"
+    },
+    {
+      "id": "w0wa-desi-cmb-pantheonplus",
+      "label": "DESI DR1 + CMB + Pantheon+",
+      "model": "w0waCDM",
+      "datasets": [
+        "DESI DR1 BAO",
+        "Planck",
+        "Planck + ACT lensing",
+        "Pantheon+"
+      ],
+      "params": {
+        "w0": {
+          "value": -0.827,
+          "sigma": 0.063
+        },
+        "wa": {
+          "value": -0.75,
+          "plus": 0.29,
+          "minus": 0.25
+        }
+      },
+      "preferenceOverLCDM": 2.5,
+      "source": "eq. (5.6) and abstract"
+    },
+    {
+      "id": "w0wa-desi-cmb-union3",
+      "label": "DESI DR1 + CMB + Union3",
+      "model": "w0waCDM",
+      "datasets": [
+        "DESI DR1 BAO",
+        "Planck",
+        "Planck + ACT lensing",
+        "Union3"
+      ],
+      "params": {
+        "w0": {
+          "value": -0.64,
+          "sigma": 0.11
+        },
+        "wa": {
+          "value": -1.27,
+          "plus": 0.4,
+          "minus": 0.34
+        }
+      },
+      "preferenceOverLCDM": 3.5,
+      "source": "eq. (5.7) and abstract"
+    },
+    {
+      "id": "w0wa-desi-cmb-desy5",
+      "label": "DESI DR1 + CMB + DES-SN5YR",
+      "model": "w0waCDM",
+      "datasets": [
+        "DESI DR1 BAO",
+        "Planck",
+        "Planck + ACT lensing",
+        "DES-SN5YR"
+      ],
+      "params": {
+        "w0": {
+          "value": -0.727,
+          "sigma": 0.067
+        },
+        "wa": {
+          "value": -1.05,
+          "plus": 0.31,
+          "minus": 0.27
+        }
+      },
+      "preferenceOverLCDM": 3.9,
+      "source": "eq. (5.8) and abstract"
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

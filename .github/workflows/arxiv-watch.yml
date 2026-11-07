@@ -1,0 +1,28 @@
+name: arXiv watch
+
+on:
+  schedule:
+    - cron: '17 6 * * 1' # Mondays, 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Search arXiv for new expansion-history papers
+        run: python3 scripts/arxiv_watch.py --days 8 --out candidates.md
+      - name: Open an issue with the candidates
+        if: hashFiles('candidates.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create paper-candidate --color 5319e7 --description "New arXiv papers to consider adding" --force || true
+          gh issue create --title "arXiv candidates — $(date -u +%F)" --label paper-candidate --body-file candidates.md

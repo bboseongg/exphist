@@ -1,0 +1,84 @@
+{
+  "title": "The Atacama Cosmology Telescope: DR6 Power Spectra, Likelihoods and ΛCDM Parameters",
+  "shortName": "ACT DR6",
+  "authors": "Louis et al. (ACT Collaboration)",
+  "year": 2025,
+  "date": "2025-03-18",
+  "arxiv": "2503.14452",
+  "doi": "10.1088/1475-7516/2025/11/062",
+  "journal": "JCAP 11 (2025) 062",
+  "probes": [
+    "CMB",
+    "CMBlens",
+    "BAO"
+  ],
+  "summary": "ACT DR6 TT/TE/EE over 10,000 deg². ACT with Planck (P-ACT) gives H0 = 67.62 ± 0.50; adding lensing and DESI BAO gives 68.22 ± 0.36.",
+  "results": [
+    {
+      "id": "lcdm-pact",
+      "label": "P-ACT: ACT DR6 + Planck (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "ACT DR6",
+        "Planck"
+      ],
+      "params": {
+        "H0": {
+          "value": 67.62,
+          "sigma": 0.5
+        },
+        "Om": {
+          "value": 0.312,
+          "sigma": 0.007
+        }
+      },
+      "source": "Sec. 2 (H0); ΛCDM results section (Ωm)"
+    },
+    {
+      "id": "lcdm-pactlb",
+      "label": "P-ACT-LB: + CMB lensing + DESI DR1 BAO (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "ACT DR6",
+        "Planck",
+        "ACT + Planck lensing",
+        "DESI DR1 BAO"
+      ],
+      "params": {
+        "H0": {
+          "value": 68.22,
+          "sigma": 0.36
+        },
+        "Om": {
+          "value": 0.303,
+          "sigma": 0.005
+        },
+        "sigma8": {
+          "value": 0.813,
+          "sigma": 0.005
+        }
+      },
+      "source": "abstract (H0, σ8); eq. (43) (Ωm)"
+    },
+    {
+      "id": "lcdm-pactlb-dr2",
+      "label": "P-ACT-LB with DESI DR2 BAO (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "ACT DR6",
+        "Planck",
+        "ACT + Planck lensing",
+        "DESI DR2 BAO"
+      ],
+      "params": {
+        "H0": {
+          "value": 68.43,
+          "sigma": 0.27
+        }
+      },
+      "source": "abstract; Appendix H"
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

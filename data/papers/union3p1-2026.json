@@ -1,0 +1,57 @@
+{
+  "title": "Banana Split: Improved Cosmological Constraints with Two Light-Curve-Shape and Color Populations Using Union3.1+UNITY1.8",
+  "shortName": "Union3.1",
+  "authors": "Rubin, Hoyt, Aldering & Perlmutter",
+  "year": 2026,
+  "date": "2026-01-27",
+  "arxiv": "2601.19854",
+  "probes": [
+    "SN"
+  ],
+  "summary": "Union3.1 with a two-population SN Ia model. With BAO and CMB the w0–wa tension with ΛCDM is about 3σ.",
+  "results": [
+    {
+      "id": "lcdm",
+      "label": "Union3.1 ΛCDM (SNe alone)",
+      "model": "LCDM",
+      "datasets": [
+        "Union3.1"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.334,
+          "plus": 0.025,
+          "minus": 0.024
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "w0wa-sn-bao-cmb",
+      "label": "Union3.1 + BAO + CMB",
+      "model": "w0waCDM",
+      "datasets": [
+        "Union3.1",
+        "BAO",
+        "CMB"
+      ],
+      "params": {
+        "w0": {
+          "value": -0.76,
+          "plus": 0.084,
+          "minus": 0.082
+        },
+        "wa": {
+          "value": -0.79,
+          "plus": 0.28,
+          "minus": 0.3
+        }
+      },
+      "preferenceOverLCDM": 3.0,
+      "source": "abstract",
+      "notes": "Abstract: tension with flat ΛCDM '~3σ' in the w0–wa plane."
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

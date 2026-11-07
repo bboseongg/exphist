@@ -1,0 +1,13 @@
+---
+/**
+ * Bilingual static text: renders both languages, CSS shows the one on <html data-lang>.
+ * <T en="Explore" ko="둘러보기" />
+ */
+interface Props {
+  en: string;
+  ko: string;
+}
+const { en, ko } = Astro.props;
+---
+
+<span class="t-en">{en}</span><span class="t-ko" lang="ko">{ko}</span>

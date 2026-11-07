@@ -1,0 +1,36 @@
+{
+  "title": "A Comprehensive Measurement of the Local Value of the Hubble Constant with 1 km/s/Mpc Uncertainty from the Hubble Space Telescope and the SH0ES Team",
+  "shortName": "SH0ES 2022",
+  "authors": "Riess et al.",
+  "year": 2021,
+  "date": "2021-12-08",
+  "arxiv": "2112.04510",
+  "doi": "10.3847/2041-8213/ac5c5b",
+  "journal": "ApJL 934, L7 (2022)",
+  "probes": [
+    "Ladder",
+    "SN"
+  ],
+  "summary": "Cepheids in the hosts of 42 SNe Ia calibrate the local distance ladder; 5σ from Planck + ΛCDM.",
+  "results": [
+    {
+      "id": "h0",
+      "label": "SH0ES Cepheids + SNe Ia",
+      "model": "LCDM",
+      "datasets": [
+        "HST Cepheids",
+        "Pantheon+ SNe Ia"
+      ],
+      "params": {
+        "H0": {
+          "value": 73.04,
+          "sigma": 1.04,
+          "note": "baseline, includes systematics"
+        }
+      },
+      "source": "abstract"
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

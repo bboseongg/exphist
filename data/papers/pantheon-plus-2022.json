@@ -1,0 +1,140 @@
+{
+  "title": "The Pantheon+ Analysis: Cosmological Constraints",
+  "shortName": "Pantheon+",
+  "authors": "Brout et al.",
+  "year": 2022,
+  "date": "2022-02-08",
+  "arxiv": "2202.04077",
+  "doi": "10.3847/1538-4357/ac8e04",
+  "journal": "ApJ 938, 110 (2022)",
+  "probes": [
+    "SN"
+  ],
+  "summary": "1701 light curves of 1550 SNe Ia over 0.001 < z < 2.26, twice the constraining power of the original Pantheon. Constant-w fits are consistent with a cosmological constant.",
+  "results": [
+    {
+      "id": "lcdm",
+      "label": "Pantheon+ ΛCDM (SNe alone)",
+      "model": "LCDM",
+      "datasets": [
+        "Pantheon+ SNe Ia"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.334,
+          "sigma": 0.018
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "wcdm",
+      "label": "Pantheon+ wCDM (SNe alone)",
+      "model": "wCDM",
+      "datasets": [
+        "Pantheon+ SNe Ia"
+      ],
+      "params": {
+        "w": {
+          "value": -0.9,
+          "sigma": 0.14
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "wcdm-shoes",
+      "label": "Pantheon+ & SH0ES (wCDM)",
+      "model": "wCDM",
+      "datasets": [
+        "Pantheon+ SNe Ia",
+        "SH0ES Cepheid host distances"
+      ],
+      "params": {
+        "H0": {
+          "value": 73.5,
+          "sigma": 1.1
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "wcdm-cmb-bao",
+      "label": "Pantheon+ + Planck + BAO (wCDM)",
+      "model": "wCDM",
+      "datasets": [
+        "Pantheon+ SNe Ia",
+        "Planck 2018",
+        "BAO compilation"
+      ],
+      "params": {
+        "w": {
+          "value": -0.978,
+          "plus": 0.024,
+          "minus": 0.031
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "w0wa-shoes",
+      "label": "Pantheon+ & SH0ES (w0waCDM)",
+      "model": "w0waCDM",
+      "datasets": [
+        "Pantheon+ SNe Ia",
+        "SH0ES Cepheid host distances"
+      ],
+      "params": {
+        "H0": {
+          "value": 73.3,
+          "sigma": 1.1
+        },
+        "w0": {
+          "value": -0.93,
+          "sigma": 0.15
+        },
+        "wa": {
+          "value": -0.1,
+          "plus": 0.9,
+          "minus": 2.0
+        }
+      },
+      "source": "abstract and Table 3"
+    },
+    {
+      "id": "w0wa-cmb-bao",
+      "label": "Pantheon+ + Planck + BAO (w0waCDM)",
+      "model": "w0waCDM",
+      "datasets": [
+        "Pantheon+ SNe Ia",
+        "Planck 2018",
+        "BAO compilation"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.316,
+          "plus": 0.009,
+          "minus": 0.005
+        },
+        "H0": {
+          "value": 67.41,
+          "plus": 0.52,
+          "minus": 0.82
+        },
+        "w0": {
+          "value": -0.841,
+          "plus": 0.066,
+          "minus": 0.061
+        },
+        "wa": {
+          "value": -0.65,
+          "plus": 0.28,
+          "minus": 0.32
+        }
+      },
+      "source": "abstract (wa) and Table 3"
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

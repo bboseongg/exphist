@@ -1,0 +1,56 @@
+{
+  "title": "The Dark Energy Survey Supernova Program: A Reanalysis Of Cosmology Results And Evidence For Evolving Dark Energy With An Updated Type Ia Supernova Calibration",
+  "shortName": "DES-Dovekie",
+  "authors": "Popovic et al. (DES Collaboration)",
+  "year": 2025,
+  "date": "2025-11-10",
+  "arxiv": "2511.07517",
+  "journal": "MNRAS 548 (2026)",
+  "probes": [
+    "SN",
+    "BAO",
+    "CMB"
+  ],
+  "summary": "DES-SN5YR reanalysed with the Dovekie cross-calibration. With DESI DR2 and the CMB the preference for evolving dark energy drops from 4.2σ to 3.2σ.",
+  "results": [
+    {
+      "id": "lcdm",
+      "label": "DES-Dovekie ΛCDM (SNe alone)",
+      "model": "LCDM",
+      "datasets": [
+        "DES-Dovekie SNe Ia"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.33,
+          "sigma": 0.015
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "w0wa-desi-cmb",
+      "label": "DES-Dovekie + DESI DR2 + CMB",
+      "model": "w0waCDM",
+      "datasets": [
+        "DES-Dovekie SNe Ia",
+        "DESI DR2 BAO",
+        "Planck, ACT DR6, SPT-3G"
+      ],
+      "params": {
+        "w0": {
+          "value": -0.803,
+          "sigma": 0.054
+        },
+        "wa": {
+          "value": -0.72,
+          "sigma": 0.21
+        }
+      },
+      "preferenceOverLCDM": 3.2,
+      "source": "abstract"
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

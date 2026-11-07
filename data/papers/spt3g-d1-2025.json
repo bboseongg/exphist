@@ -1,0 +1,57 @@
+{
+  "title": "SPT-3G D1: CMB temperature and polarization power spectra and cosmology from 2019 and 2020 observations of the SPT-3G Main field",
+  "shortName": "SPT-3G D1",
+  "authors": "Camphuis et al. (SPT-3G Collaboration)",
+  "year": 2025,
+  "date": "2025-06-25",
+  "arxiv": "2506.20707",
+  "doi": "10.1103/7wt3-9v2y",
+  "journal": "Phys. Rev. D (2026)",
+  "probes": [
+    "CMB",
+    "CMBlens"
+  ],
+  "summary": "TT/TE/EE power spectra from 4% of the sky. SPT-3G alone gives H0 = 66.66 ± 0.60, 6.2σ from SH0ES; combined with ACT and Planck (CMB-SPA) it gives 67.19 ± 0.38.",
+  "results": [
+    {
+      "id": "lcdm-spt",
+      "label": "SPT-3G D1 alone (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "SPT-3G D1 TT/TE/EE",
+        "SPT-3G lensing"
+      ],
+      "params": {
+        "H0": {
+          "value": 66.66,
+          "sigma": 0.6
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "lcdm-cmb-spa",
+      "label": "CMB-SPA: SPT-3G + Planck + ACT (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "SPT-3G D1",
+        "Planck",
+        "ACT DR6"
+      ],
+      "params": {
+        "H0": {
+          "value": 67.19,
+          "sigma": 0.38
+        },
+        "sigma8": {
+          "value": 0.8137,
+          "sigma": 0.0037
+        }
+      },
+      "source": "abstract (published version)",
+      "notes": "v1 quoted H0 = 67.24 ± 0.35."
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

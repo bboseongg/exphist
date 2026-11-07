@@ -1,0 +1,35 @@
+{
+  "title": "TDCOSMO 2025: Cosmological constraints from strong lensing time delays",
+  "shortName": "TDCOSMO 2025",
+  "authors": "TDCOSMO Collaboration (Birrer et al.)",
+  "year": 2025,
+  "date": "2025-06-03",
+  "arxiv": "2506.03023",
+  "doi": "10.1051/0004-6361/202555801",
+  "journal": "A&A 704 (2025)",
+  "probes": [
+    "TD"
+  ],
+  "summary": "Eight time-delay lensed quasars with JWST, Keck and VLT kinematics; independent of the distance ladder and the CMB.",
+  "results": [
+    {
+      "id": "h0",
+      "label": "TDCOSMO-2025 lenses + Pantheon+ Ωm (flat ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "8 TDCOSMO time-delay lenses",
+        "Pantheon+ Ωm prior"
+      ],
+      "params": {
+        "H0": {
+          "value": 71.6,
+          "plus": 3.9,
+          "minus": 3.3
+        }
+      },
+      "source": "abstract (published version)"
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

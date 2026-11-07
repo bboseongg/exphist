@@ -1,0 +1,29 @@
+{
+  "name": "exphist",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Interactive, data-driven history of cosmic expansion — every curve on the site is computed from the parameters in data/papers/*.json",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "validate": "astro sync"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^9.1.2",
+    "@fontsource-variable/fraunces": "^5.2.0",
+    "@fontsource-variable/source-sans-3": "^5.2.0",
+    "astro": "^7.4.7",
+    "d3": "^7.9.0",
+    "svelte": "^5.57.0",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "@types/three": "^0.187.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.1.0"
+  }
+}

@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ScaleFactorTimeline from '../components/ScaleFactorTimeline.svelte';
+import HubbleRate from '../components/HubbleRate.svelte';
+import DarkEnergyPlane from '../components/DarkEnergyPlane.svelte';
+import H0Ladder from '../components/H0Ladder.svelte';
+import PaperLedger from '../components/PaperLedger.svelte';
+import { flattenPapers, isDrawable } from '../lib/models';
+
+const papers = await getCollection('papers');
+const results = flattenPapers(papers.map((p) => ({ id: p.id, data: p.data })));
+const nPapers = papers.length;
+const nDrawable = results.filter(isDrawable).length;
+const nW0wa = results.filter((r) => r.params.w0 && r.params.wa).length;
+const latest = results[0];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Base
+  title="Explore — Expansion history"
+  description="Interactive, data-driven figures of cosmic expansion: scale factor, Hubble rate, dark-energy equation of state and H0, computed from published parameters."
+>
+  <section class="hero wrap" id="history">
+    <div class="hero-text">
+      <h1>Explore the expansion history</h1>
+      <p class="lead">
+        A scale factor, a Hubble rate, a dark-energy equation of state: every curve on this page is integrated in your
+        browser from parameters published in {nPapers} papers, the newest from {latest?.year}. Press play.
+      </p>
+    </div>
+    <ScaleFactorTimeline client:load results={results} />
+    <p class="figure-caption">
+      Scale factor <i>a</i> against cosmic time for up to three published fits ({nDrawable} available) and one of your own.
+      Switch to log time to see the radiation, matter and dark-energy eras as straight segments. The readouts and the
+      patch of galaxies follow the first model in the list; extrapolation past today assumes the fitted <i>w</i>(<i>a</i>)
+      keeps holding.
+    </p>
+  </section>
+
+  <section class="section" id="rate">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How fast, when</h2>
+        <p>
+          The expansion speed ȧ fell for about nine billion years and has been rising since. Models that agree on today's
+          rate can separate at <i>z</i> ≈ 0.5–2 — exactly where BAO and supernovae measure.
+        </p>
+      </div>
+      <HubbleRate client:visible results={results} />
+      <p class="figure-caption">
+        Same models as above. The dot marks the turnaround (<i>q</i> = 0) for each; hover for values.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="dark-energy">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Is dark energy a constant?</h2>
+        <p>
+          A cosmological constant sits at (<i>w</i>₀, <i>w</i>ₐ) = (−1, 0). Since 2024 the combined BAO + CMB + supernova
+          fits have clustered to the upper right of it — a dark energy that looks weaker now than it was. Drag the year
+          slider to watch the constraints move.
+        </p>
+      </div>
+      <DarkEnergyPlane client:visible results={results} />
+      <p class="figure-caption">
+        {nW0wa} published <i>w</i>₀–<i>w</i>ₐ fits with 68% intervals. Shape identifies the paper, shade the year. The
+        dotted diagonal is <i>w</i>₀ + <i>w</i>ₐ = −1: below it the equation of state crosses −1 at early times.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="h0">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How fast today</h2>
+        <p>
+          The Hubble constant from the early universe (assuming ΛCDM) and from direct measurement in the late universe
+          disagree by about 5 km/s/Mpc, far beyond their stated errors.
+        </p>
+      </div>
+      <H0Ladder client:visible results={results} />
+      <p class="figure-caption">
+        ΛCDM-only values so the rows are comparable. Dynamical-dark-energy fits also return an <i>H</i>₀, but it depends
+        on the model; those appear in the table below.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="papers">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The papers</h2>
+        <p>
+          One JSON file per paper drives everything above. Every number was checked against the paper itself; the grey
+          line under each value says where it is (abstract, table or equation).{' '}
+          <a href={`${base}/about/#add`}>Here is how to add or correct one.</a>
+        </p>
+      </div>
+      <PaperLedger client:visible results={results} />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    display: grid;
+    gap: 1.6rem;
+    padding-block: clamp(2rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.5rem);
+  }
+  .hero-text {
+    display: grid;
+    gap: 0.9rem;
+  }
+</style>

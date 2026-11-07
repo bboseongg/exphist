@@ -1,0 +1,80 @@
+{
+ "source": "DESI DR2 BAO (arXiv:2503.14738, Table IV), Cobaya bao_data desi_bao_dr2 ALL_GCcomb",
+ "conversion": "adot = c / (DH/rd * rd) / ((1+z) H0) with rd = 147.09 Mpc and H0 = 67.36 (Planck 2018, Table 2)",
+ "rd": 147.09,
+ "H0": 67.36,
+ "points": [
+  {
+   "z": 0.295,
+   "tracer": "BGS",
+   "DV": 7.9417,
+   "DV_err": 0.0761
+  },
+  {
+   "z": 0.51,
+   "tracer": "LRG1",
+   "DM": 13.5876,
+   "DM_err": 0.1684,
+   "DH": 21.8629,
+   "DH_err": 0.4289,
+   "rho_DM_DH": -0.452,
+   "adot": 0.9165,
+   "adot_err": 0.018
+  },
+  {
+   "z": 0.706,
+   "tracer": "LRG2",
+   "DM": 17.3507,
+   "DM_err": 0.1799,
+   "DH": 19.4553,
+   "DH_err": 0.3339,
+   "rho_DM_DH": -0.395,
+   "adot": 0.9116,
+   "adot_err": 0.0156
+  },
+  {
+   "z": 0.934,
+   "tracer": "LRG3+ELG1",
+   "DM": 21.5756,
+   "DM_err": 0.1618,
+   "DH": 17.6415,
+   "DH_err": 0.201,
+   "rho_DM_DH": -0.347,
+   "adot": 0.8868,
+   "adot_err": 0.0101
+  },
+  {
+   "z": 1.321,
+   "tracer": "ELG2",
+   "DM": 27.6009,
+   "DM_err": 0.3246,
+   "DH": 14.176,
+   "DH_err": 0.2246,
+   "rho_DM_DH": -0.398,
+   "adot": 0.9196,
+   "adot_err": 0.0146
+  },
+  {
+   "z": 1.484,
+   "tracer": "QSO",
+   "DM": 30.5119,
+   "DM_err": 0.7636,
+   "DH": 12.817,
+   "DH_err": 0.518,
+   "rho_DM_DH": -0.494,
+   "adot": 0.9504,
+   "adot_err": 0.0384
+  },
+  {
+   "z": 2.33,
+   "tracer": "Lyα",
+   "DH": 8.6315,
+   "DH_err": 0.1011,
+   "DM": 38.989,
+   "DM_err": 0.5317,
+   "rho_DM_DH": -0.431,
+   "adot": 1.0527,
+   "adot_err": 0.0123
+  }
+ ]
+}

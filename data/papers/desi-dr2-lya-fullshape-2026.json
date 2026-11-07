@@ -1,0 +1,111 @@
+{
+  "title": "DESI DR2 Results IV: Alcock–Paczyński Measurements from the Lyman Alpha Forest and Cosmological Constraints",
+  "shortName": "DESI DR2 Lyα full shape",
+  "authors": "DESI Collaboration",
+  "year": 2026,
+  "date": "2026-07-29",
+  "arxiv": "2607.27410",
+  "probes": [
+    "Lya",
+    "BAO"
+  ],
+  "summary": "1% Alcock–Paczyński measurement at z = 2.33 from the full shape of the Lyα forest correlations, combined with BAO. It lowers the DESI–CMB tension from 2.4σ to 2.2σ; evolving dark energy is still preferred at 2.7σ with the CMB and 3.2σ adding supernovae.",
+  "results": [
+    {
+      "id": "lcdm-lya-bbn",
+      "label": "DESI DR2 Lyα forest + BBN (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "DESI DR2 Lyα forest",
+        "BBN prior"
+      ],
+      "params": {
+        "H0": {
+          "value": 66.5,
+          "sigma": 1.3
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "lcdm-lya-ap",
+      "label": "DESI DR2 Lyα full shape alone (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "DESI DR2 Lyα full shape"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.325,
+          "sigma": 0.018
+        }
+      },
+      "source": "abstract; eq. (27)",
+      "notes": "1.4σ above DESI galaxy BAO."
+    },
+    {
+      "id": "lcdm-desi",
+      "label": "DESI DR2 BAO + Lyα full shape (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "DESI DR2 BAO",
+        "DESI DR2 Lyα full shape"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.3012,
+          "sigma": 0.0079
+        }
+      },
+      "source": "eq. (28)"
+    },
+    {
+      "id": "lcdm-desi-cmb",
+      "label": "DESI DR2 BAO + Lyα full shape + CMB (ΛCDM)",
+      "model": "LCDM",
+      "datasets": [
+        "DESI DR2 BAO",
+        "DESI DR2 Lyα full shape",
+        "CMB"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.3042,
+          "sigma": 0.0033
+        }
+      },
+      "source": "text after eq. (28)"
+    },
+    {
+      "id": "w0wa-desi-cmb",
+      "label": "DESI DR2 BAO + Lyα full shape + CMB",
+      "model": "w0waCDM",
+      "datasets": [
+        "DESI DR2 BAO",
+        "DESI DR2 Lyα full shape",
+        "CMB"
+      ],
+      "params": {},
+      "preferenceOverLCDM": 2.7,
+      "source": "abstract",
+      "notes": "The paper quotes the significance; w0 and wa are shown only as contours."
+    },
+    {
+      "id": "w0wa-desi-cmb-sn",
+      "label": "DESI DR2 BAO + Lyα full shape + CMB + DES-Dovekie",
+      "model": "w0waCDM",
+      "datasets": [
+        "DESI DR2 BAO",
+        "DESI DR2 Lyα full shape",
+        "CMB",
+        "DES-Dovekie SNe"
+      ],
+      "params": {},
+      "preferenceOverLCDM": 3.2,
+      "source": "abstract",
+      "notes": "The paper quotes the significance; w0 and wa are shown only as contours."
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

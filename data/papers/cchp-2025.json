@@ -1,0 +1,37 @@
+{
+  "title": "Status Report on the Chicago-Carnegie Hubble Program (CCHP): Measurement of the Hubble Constant Using the Hubble and James Webb Space Telescopes",
+  "shortName": "CCHP 2025",
+  "authors": "Freedman et al.",
+  "year": 2025,
+  "date": "2025-03-17",
+  "arxiv": "2408.06153",
+  "doi": "10.3847/1538-4357/adce78",
+  "journal": "ApJ 985, 203 (2025)",
+  "probes": [
+    "Ladder",
+    "SN"
+  ],
+  "summary": "TRGB distances from HST + JWST to 24 SN Ia calibrators give H0 = 70.39, between the CMB and SH0ES values.",
+  "results": [
+    {
+      "id": "h0-trgb",
+      "label": "CCHP TRGB (HST + JWST, 24 SN Ia calibrators)",
+      "model": "LCDM",
+      "datasets": [
+        "HST + JWST TRGB",
+        "CSP SNe Ia"
+      ],
+      "params": {
+        "H0": {
+          "value": 70.39,
+          "sigma": 1.94,
+          "note": "1.22 stat ⊕ 1.33 sys ⊕ 0.70 σ_SN, added in quadrature"
+        }
+      },
+      "source": "abstract (v3)",
+      "notes": "v1 was submitted 2024-08-12; these numbers are from v3 (2025-03-17)."
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

@@ -1,0 +1,103 @@
+{
+  "title": "The Dark Energy Survey: Cosmology Results With ~1500 New High-redshift Type Ia Supernovae Using The Full 5-year Dataset",
+  "shortName": "DES-SN5YR",
+  "authors": "DES Collaboration",
+  "year": 2024,
+  "date": "2024-01-05",
+  "arxiv": "2401.02929",
+  "doi": "10.3847/2041-8213/ad6f9f",
+  "journal": "ApJL 973, L14 (2024)",
+  "probes": [
+    "SN"
+  ],
+  "summary": "1635 photometrically classified DES SNe Ia plus 194 low-z SNe. SN data alone require acceleration at over 5σ; the w0wa fit is consistent with a constant equation of state within about 2σ.",
+  "results": [
+    {
+      "id": "lcdm",
+      "label": "DES-SN5YR ΛCDM (SNe alone)",
+      "model": "LCDM",
+      "datasets": [
+        "DES-SN5YR"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.352,
+          "sigma": 0.017
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "wcdm",
+      "label": "DES-SN5YR wCDM (SNe alone)",
+      "model": "wCDM",
+      "datasets": [
+        "DES-SN5YR"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.264,
+          "plus": 0.074,
+          "minus": 0.096
+        },
+        "w": {
+          "value": -0.8,
+          "plus": 0.14,
+          "minus": 0.16
+        }
+      },
+      "source": "abstract"
+    },
+    {
+      "id": "w0wa",
+      "label": "DES-SN5YR w0waCDM (SNe alone)",
+      "model": "w0waCDM",
+      "datasets": [
+        "DES-SN5YR"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.495,
+          "plus": 0.033,
+          "minus": 0.043
+        },
+        "w0": {
+          "value": -0.36,
+          "plus": 0.36,
+          "minus": 0.3
+        },
+        "wa": {
+          "value": -8.8,
+          "plus": 3.7,
+          "minus": 4.5
+        }
+      },
+      "source": "abstract",
+      "notes": "SN-only w0wa constraint is weak and prior-limited; outside the plotted plane."
+    },
+    {
+      "id": "wcdm-cmb-bao-3x2",
+      "label": "DES-SN5YR + Planck + SDSS BAO + DES 3×2pt (wCDM)",
+      "model": "wCDM",
+      "datasets": [
+        "DES-SN5YR",
+        "Planck CMB",
+        "SDSS BAO",
+        "DES Y3 3×2pt"
+      ],
+      "params": {
+        "Om": {
+          "value": 0.321,
+          "sigma": 0.007
+        },
+        "w": {
+          "value": -0.941,
+          "sigma": 0.026
+        }
+      },
+      "source": "abstract"
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

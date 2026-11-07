@@ -1,0 +1,92 @@
+{
+  "title": "Constraints on Dynamical Dark Energy from Multiple Probes in the Full Dark Energy Survey",
+  "shortName": "DES Y6 multi-probe",
+  "authors": "DES Collaboration",
+  "year": 2026,
+  "arxiv": "2605.27221",
+  "journal": "PRL (to appear)",
+  "probes": [
+    "SN",
+    "BAO",
+    "WL",
+    "GC"
+  ],
+  "summary": "w0–wa from DES alone (SNe + BAO + 3×2pt), the tightest single-survey constraint: 2.2σ from Λ; 2.3σ adding DESI DR2 BAO; 3.0σ adding the CMB.",
+  "results": [
+    {
+      "id": "w0wa-des",
+      "label": "DES Y6 SNe + BAO + 3×2pt",
+      "model": "w0waCDM",
+      "datasets": [
+        "DES SNe",
+        "DES BAO",
+        "DES Y6 3×2pt"
+      ],
+      "params": {
+        "w0": {
+          "value": -0.84,
+          "sigma": 0.1
+        },
+        "wa": {
+          "value": -0.44,
+          "plus": 0.6,
+          "minus": 0.55
+        }
+      },
+      "preferenceOverLCDM": 2.2,
+      "source": "abstract"
+    },
+    {
+      "id": "w0wa-des-desi",
+      "label": "DES Y6 + DESI DR2 BAO",
+      "model": "w0waCDM",
+      "datasets": [
+        "DES SNe",
+        "DES BAO",
+        "DES Y6 3×2pt",
+        "DESI DR2 BAO"
+      ],
+      "params": {
+        "w0": {
+          "value": -0.84,
+          "plus": 0.06,
+          "minus": 0.07
+        },
+        "wa": {
+          "value": -0.53,
+          "plus": 0.33,
+          "minus": 0.28
+        }
+      },
+      "preferenceOverLCDM": 2.3,
+      "source": "abstract"
+    },
+    {
+      "id": "w0wa-des-desi-cmb",
+      "label": "DES Y6 + DESI DR2 BAO + CMB",
+      "model": "w0waCDM",
+      "datasets": [
+        "DES SNe",
+        "DES BAO",
+        "DES Y6 3×2pt",
+        "DESI DR2 BAO",
+        "CMB"
+      ],
+      "params": {
+        "w0": {
+          "value": -0.82,
+          "sigma": 0.05
+        },
+        "wa": {
+          "value": -0.63,
+          "plus": 0.21,
+          "minus": 0.18
+        }
+      },
+      "preferenceOverLCDM": 3.0,
+      "source": "abstract"
+    }
+  ],
+  "status": "verified",
+  "checkedOn": "2026-11-08"
+}

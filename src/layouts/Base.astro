@@ -1,0 +1,160 @@
+---
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/source-sans-3';
+import '../styles/global.css';
+import T from '../components/T.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  /** full-bleed story page: header floats transparently over the content */
+  immersive?: boolean;
+}
+const { title, description, immersive = false } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const repo = import.meta.env.PUBLIC_REPO_URL ?? '';
+const built = new Date().toISOString().slice(0, 10);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0a0f1f" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <script is:inline>
+      // language before first paint: stored choice, else the browser's
+      (function () {
+        var l = '';
+        try { l = localStorage.getItem('exphist-lang') || ''; } catch (e) {}
+        if (l !== 'en' && l !== 'ko') l = /^ko\b/i.test(navigator.language || '') ? 'ko' : 'en';
+        document.documentElement.dataset.lang = l;
+        document.documentElement.lang = l;
+      })();
+    </script>
+  </head>
+  <body>
+    <header class:list={["site-head", { immersive }]}>
+      <div class="wrap row">
+        <a class="wordmark" href={`${base}/`}>
+          <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+            <circle cx="11" cy="11" r="3" fill="currentColor" />
+            <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1" opacity="0.6" />
+            <circle cx="11" cy="11" r="10" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3" />
+          </svg>
+          <span><T en="Expansion history" ko="팽창의 역사" /></span>
+        </a>
+        <nav aria-label="Site">
+          <a href={`${base}/explore/`}><T en="Explore" ko="둘러보기" /></a>
+          <a href={`${base}/explore/#papers`}><T en="Papers" ko="논문" /></a>
+          <a href={`${base}/about/`}><T en="About" ko="소개" /></a>
+          {repo && <a href={repo} rel="noopener">GitHub</a>}
+          <div class="lang" role="group" aria-label="Language / 언어">
+            <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-set-lang="ko" aria-pressed="false" lang="ko">한</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-foot">
+      <div class="wrap">
+        <p class="t-en">
+          Every curve is computed in the browser from the parameters in <code>data/papers/</code>; the integrator is checked
+          against astropy. Built {built}. Figures and text CC BY 4.0; code MIT.
+        </p>
+        <p class="t-ko" lang="ko">
+          모든 곡선은 <code>data/papers/</code>의 매개변수로 브라우저에서 계산하며, 적분기는 astropy와 대조해 검증했습니다.
+          빌드 {built}. 그림과 글은 CC BY 4.0, 코드는 MIT.
+        </p>
+      </div>
+    </footer>
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var buttons = document.querySelectorAll('[data-set-lang]');
+        function paint() {
+          buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.setLang === root.dataset.lang)); });
+        }
+        buttons.forEach(function (b) {
+          b.addEventListener('click', function () {
+            var l = b.dataset.setLang;
+            if (l === root.dataset.lang) return;
+            root.dataset.lang = l;
+            root.lang = l;
+            try { localStorage.setItem('exphist-lang', l); } catch (e) {}
+            paint();
+            document.dispatchEvent(new CustomEvent('langchange', { detail: l }));
+          });
+        });
+        paint();
+      })();
+    </script>
+  </body>
+</html>
+
+<style>
+  .site-head {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-head.immersive { position: absolute; left: 0; right: 0; background: transparent; backdrop-filter: none; border-bottom: 0; }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 3.4rem;
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+  }
+  nav {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.92rem;
+  }
+  nav { align-items: center; }
+  nav a { color: var(--ink-2); text-decoration: none; }
+  nav a:hover { color: var(--ink); }
+  .lang { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 999px; padding: 2px; margin-left: 0.2rem; }
+  .lang button {
+    font: inherit; font-size: 0.78rem; line-height: 1; color: var(--ink-2); background: transparent; border: 0;
+    border-radius: 999px; padding: 0.32rem 0.55rem; cursor: pointer; min-width: 2rem;
+  }
+  .lang button[aria-pressed='true'] { background: var(--ink); color: #070b18; font-weight: 600; }
+  .lang button:not([aria-pressed='true']):hover { color: var(--ink); }
+  @media (max-width: 560px) {
+    nav { gap: 0.8rem; font-size: 0.85rem; }
+    .wordmark span { display: none; }
+  }
+  main { flex: 1; }
+  .site-foot {
+    border-top: 1px solid var(--line);
+    padding-block: 2rem 3rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  .site-foot p { max-width: var(--measure); }
+</style>

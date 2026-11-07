@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Story from '../components/Story.svelte';
+import T from '../components/T.astro';
+import { flattenPapers } from '../lib/models';
+
+const papers = await getCollection('papers');
+const results = flattenPapers(papers.map((p) => ({ id: p.id, data: p.data })));
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const newest = [...papers].sort((a, b) => (b.data.date ?? '').localeCompare(a.data.date ?? ''))[0];
+---
+
+<Base
+  immersive
+  title="The expanding universe"
+  description="Scroll through 13.8 billion years of cosmic expansion, computed live from the latest papers."
+>
+  <Story client:load results={results} />
+
+  <section class="outro">
+    <div class="wrap grid">
+      <h2>
+        <T en={`Every curve above is computed live from ${papers.length} papers.`} ko={`위의 모든 곡선은 논문 ${papers.length}편의 값으로 바로 계산됩니다.`} />
+      </h2>
+      <div class="side">
+        <p>
+          <T
+            en={`Newest: ${newest?.data.shortName}, ${newest?.data.date?.slice(0, 7)}. Every number was checked against its paper; a new paper is one JSON file.`}
+            ko={`가장 최근: ${newest?.data.shortName} (${newest?.data.date?.slice(0, 7)}). 모든 수치는 논문 원문과 대조했고, 새 논문은 JSON 파일 하나로 추가됩니다.`}
+          />
+        </p>
+        <div class="actions">
+          <a class="btn primary" href={`${base}/explore/`}><T en="Explore the figures" ko="그림 둘러보기" /></a>
+          <a class="btn" href={`${base}/explore/#papers`}><T en="All papers" ko="논문 목록" /></a>
+          <a class="btn" href={`${base}/about/#add`}><T en="Add a paper" ko="논문 추가하기" /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .outro { padding-block: clamp(4rem, 12vh, 9rem); background: #04060e; border-top: 1px solid var(--line); }
+  .grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.5rem; align-items: end; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  h2 { font-size: clamp(2rem, 1.2rem + 3vw, 3.8rem); line-height: 1.02; letter-spacing: -0.03em; font-weight: 400; font-variation-settings: 'opsz' 144; }
+  .side { display: grid; gap: 1.3rem; }
+  .side p { color: var(--ink-2); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .btn { display: inline-flex; align-items: center; padding: 0.75rem 1.15rem; border-radius: 999px; border: 1px solid var(--line-strong); text-decoration: none; color: var(--ink); font-weight: 500; transition: background 160ms, border-color 160ms; }
+  .btn:hover { border-color: var(--ink-2); background: rgba(255,255,255,0.04); }
+  .btn.primary { background: var(--ink); color: #070b18; border-color: var(--ink); }
+  .btn.primary:hover { background: #fff; }
+</style>
